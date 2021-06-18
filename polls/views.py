@@ -6,3 +6,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, world. This is from Pycharm IDE.")
+
+def owner(request):
+       return HttpResponse("Hello, world. d72eecc6 is the polls index.")
