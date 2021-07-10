@@ -29,7 +29,7 @@ class QuestionDetailView(ListView):
 
 
 def owner(request):
-    return HttpResponse("Hello, world. d72eecc6 is the polls owner.")
+    return HttpResponse("Hello, world. 579036d9 is the polls owner.")
 
 
 def detail(request, question_id):
