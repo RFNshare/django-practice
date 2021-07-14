@@ -11,6 +11,8 @@
             <p>There are no autos in the library.</p>
         {% endif %}
 
-    <a href="{% url 'autos:make_create' %}">Add a make</a><br><br>
+    <a href="{% url 'autos:make_create' %}">Add a make</a>|
+    <a href="{% url 'autos:make_list' %}">View makes </a>({{ make_create_count }}) <br><br>
+
     <a href="{% url 'autos:autos_list' %}">Back to autos</a>
 {% endblock %}

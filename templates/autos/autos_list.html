@@ -1,6 +1,11 @@
+<head>
+    <meta name="dj4e" content="579036d9585c651f97a1490a46616132">
+</head>
 {% extends "base_bootstrap.html" %}
 
+
 {% block content %}
+
     <h1>Autos List</h1>
     {% if object_list %}
         {% for i in object_list %}
@@ -13,7 +18,7 @@
         <p>Please add a make before you add an auto.</p><br>
     {% endif %}
 
-    <a href="{% url 'autos:autos_create' %}">Add a auto</a><br><br>
+    <a href="{% url 'autos:autos_create' %}">Add an auto</a><br><br>
     <a href="{% url 'autos:make_list' %}">View makes </a>({{ make_create_count }}) |
     <a href="{% url 'autos:make_create' %}">Add a make</a>
 {% endblock %}

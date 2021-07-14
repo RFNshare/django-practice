@@ -10,7 +10,7 @@
                     {% csrf_token %}
                     <p>Are you sure you want to delete {{ make.name }} ?</p>
                     <br>
-                    <input type="submit" class="btn btn-danger" value="Yes"/>
+                    <input type="submit" class="btn btn-danger" value="Yes, delete."/>
                     <a class="btn btn-success" href="{% url 'autos:make_list' %}">Cancel</a>
                 </form>
             </div>
