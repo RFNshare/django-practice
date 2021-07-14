@@ -1,0 +1,13 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>DJ4E Sample Implementations</h1>
+        <li>Try <a href="{% url 'autos:autos_crud' %}">Autos Crud</a></li>
+        <a class="btn btn-danger" href="{% url 'logout' %}?next={% url 'home' %}">Logout</a>
+
+        {% else %}
+        <p>Unauthorized User</p>
+        <a href="{% url 'login' %}?next={% url 'login' %}">Login</a>
+    {% endif %}
+{% endblock %}
