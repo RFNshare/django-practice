@@ -9,7 +9,7 @@ from django.views.generic import ListView
 
 class IndexView(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, 'autos/index.html')
+        return render(request, 'autos/autos_list.html')
 
 
 def autos_crud(request):
