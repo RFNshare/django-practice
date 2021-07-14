@@ -7,20 +7,21 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 
-def index(request):
-    return render(request, 'autos/index.html')
+class IndexView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, 'autos/index.html')
 
 
 def autos_crud(request):
     return render(request, 'autos/autos_list.html')
 
 
-class MakeListView(ListView):
+class MakeListView(LoginRequiredMixin, ListView):
     model = MakeCreate
     template_name = 'autos/make_list.html'
 
 
-class MakeCreateView(View):
+class MakeCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = MakeForm
         ctx = {
@@ -35,7 +36,7 @@ class MakeCreateView(View):
             return redirect('autos:make_list')
 
 
-class MakeUpdateView(View):
+class MakeUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         make_update = MakeCreate.objects.get(id=pk)
         form = MakeForm(instance=make_update)
@@ -50,10 +51,10 @@ class MakeUpdateView(View):
         form = MakeForm(request.POST, instance=make_update)
         if form.is_valid():
             form.save()
-            return redirect('autos:make_list')
+            return redirect('autos:autos_list')
 
 
-class MakeDeleteView(View):
+class MakeDeleteView(LoginRequiredMixin, View):
     def get(self, request, pk):
         make = MakeCreate.objects.get(id=pk)
         ctx = {
@@ -67,7 +68,7 @@ class MakeDeleteView(View):
         return redirect('autos:make_list')
 
 
-class AutosListView(ListView):
+class AutosListView(LoginRequiredMixin, ListView):
     model = AutosCreate
     template_name = 'autos/autos_list.html'
 
@@ -79,7 +80,7 @@ class AutosListView(ListView):
         return context
 
 
-class AutosCreateView(View):
+class AutosCreateView(LoginRequiredMixin, View):
     def get(self, request):
         form = AutosForm
         ctx = {
@@ -94,7 +95,7 @@ class AutosCreateView(View):
             return redirect('autos:autos_list')
 
 
-class AutosUpdateView(View):
+class AutosUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         autos = AutosCreate.objects.get(id=pk)
         form = AutosForm(instance=autos)
@@ -112,7 +113,7 @@ class AutosUpdateView(View):
             return redirect('autos:autos_list')
 
 
-class AutosDeleteView(View):
+class AutosDeleteView(LoginRequiredMixin, View):
     def get(self, request, pk):
         autos = AutosCreate.objects.get(id=pk)
         ctx = {

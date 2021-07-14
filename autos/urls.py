@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'autos'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     path('crud/', views.autos_crud, name='autos_crud'),
     path('make_create/', views.MakeCreateView.as_view(), name='make_create'),
     path('make_list/', views.MakeListView.as_view(), name='make_list'),
