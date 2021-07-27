@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import *
 from django.shortcuts import render, redirect
 from .forms import *
@@ -6,7 +7,7 @@ from django.contrib import messages
 
 
 # Create your views here.
-
+@login_required
 def cat_list(request):
     cats = Cat.objects.all()
     breed_count = Breed.objects.all().count()
@@ -16,7 +17,7 @@ def cat_list(request):
     }
     return render(request, 'cats/cats_list.html', ctx)
 
-
+@login_required
 def cat_create(request):
     form = CatsForm
     ctx = {
@@ -31,7 +32,7 @@ def cat_create(request):
             return redirect('cats:all')
     return render(request, 'cats/cats_create.html', ctx)
 
-
+@login_required
 def cat_update(request, pk):
     cat = Cat.objects.get(id=pk)
     form = CatsForm(instance=cat)
@@ -47,7 +48,7 @@ def cat_update(request, pk):
             return redirect('cats:all')
     return render(request, 'cats/cats_create.html', ctx)
 
-
+@login_required
 def cat_delete(request, pk):
     cat = Cat.objects.get(id=pk)
     if request.method == 'POST':
@@ -59,7 +60,7 @@ def cat_delete(request, pk):
     }
     return render(request, 'cats/cat_delete.html', ctx)
 
-
+@login_required
 def breeds_list(request):
     breeds = Breed.objects.all()
     ctx = {
@@ -67,7 +68,7 @@ def breeds_list(request):
     }
     return render(request, 'cats/breed_list.html', ctx)
 
-
+@login_required
 def breeds_create(request):
     form = BreedForm
     ctx = {
@@ -81,7 +82,7 @@ def breeds_create(request):
             return redirect('cats:breeds_all')
     return render(request, 'cats/breed_create.html', ctx)
 
-
+@login_required
 def breed_update(request, pk):
     breed = Breed.objects.get(id=pk)
     form = BreedForm(instance=breed)
@@ -96,7 +97,7 @@ def breed_update(request, pk):
             return redirect('cats:breeds_all')
     return render(request, 'cats/breed_create.html', ctx)
 
-
+@login_required
 def breed_delete(request, pk):
     breed = Breed.objects.get(id=pk)
     if request.method == 'POST':
