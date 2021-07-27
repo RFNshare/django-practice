@@ -9,7 +9,13 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <br>
-                    <input type="submit" class="btn btn-primary" value="Submit"/>
+                    {% if update == 'update' %}
+                        <input type="submit" class="btn btn-primary" value="Update"/>
+                    {% endif %}
+                    {% if create == 'create' %}
+                        <input type="submit" class="btn btn-primary" value="Create"/>
+                    {% endif %}
+                    {#                    <input type="submit" class="btn btn-primary" value="Create"/>#}
                     <a class="btn" href="{% url 'autos:autos_list' %}">Cancel</a>
                 </form>
             </div>

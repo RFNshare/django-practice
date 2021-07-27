@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'autos.apps.AutosConfig',
     'home.apps.HomeConfig',
+    'cats.apps.CatsConfig',
     'crispy_forms'
 ]
 

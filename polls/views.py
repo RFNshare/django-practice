@@ -1,15 +1,11 @@
-from django.urls import reverse
-
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404, HttpResponseRedirect
-
+from django.urls import reverse
 # Create your views here.
-from django.template import loader
 from django.views import generic
+from django.views.generic.list import ListView
 
 from polls.models import Question, Choice
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
 
 
 def index(request):

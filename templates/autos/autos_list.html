@@ -15,10 +15,14 @@
         {% endfor %}
     {% else %}
         <p>There are no autos in the library.</p>
-        <p>Please add a make before you add an auto.</p><br>
     {% endif %}
-
-    <a href="{% url 'autos:autos_create' %}">Add an auto</a><br><br>
-    <a href="{% url 'autos:make_list' %}">View makes </a>({{ make_create_count }}) |
+    <p>
+        {% if make_count > 0 %}
+            <a href="{% url 'autos:autos_create' %}">Add an auto</a><br><br>
+        {% else %}
+            Please add a make before you add an auto.<br>
+        {% endif %}
+    </p>
+    <a href="{% url 'autos:make_list' %}">View makes </a>({{ make_count }}) |
     <a href="{% url 'autos:make_create' %}">Add a make</a>
 {% endblock %}

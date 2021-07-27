@@ -2,20 +2,25 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-   <div class="container">
-        <div class="row row-header">
-            <div class="col-12 col-sm-6">
-                {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
-                {% endif %}
+    <div class="container-fluid">
+        <h3 class="text-dark mb-4 text-center">Make Creation Page</h3>
+        <div class="row mb-3">
+            <div class="row">
+                <div class="card shadow mb-3 mx-auto" style="width: 38rem;">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Create Make</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <br>
+                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                            <a class="btn" href="{% url 'autos:autos_list' %}">Cancel</a>
+                        </form>
+                    </div>
 
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <br>
-                    <input type="submit" class="btn btn-primary" value="Submit"/>
-                    <a class="btn" href="{% url 'autos:autos_list' %}">Cancel</a>
-                </form>
+                </div>
             </div>
         </div>
     </div>
