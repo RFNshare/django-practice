@@ -9,12 +9,12 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <br>
-                    {% if update == 'update' %}
-                        <input type="submit" class="btn btn-primary" value="Update"/>
-                    {% endif %}
-                    {% if create == 'create' %}
-                        <input type="submit" class="btn btn-primary" value="Create"/>
-                    {% endif %}
+{#                    {% if update == 'update' %}#}
+{#                        <input type="submit" class="btn btn-primary" value="Submit"/>#}
+{#                    {% endif %}#}
+{#                    {% if create == 'create' %}#}
+                        <input type="submit" class="btn btn-primary" value="Submit"/>
+{#                    {% endif %}#}
                     {#                    <input type="submit" class="btn btn-primary" value="Create"/>#}
                     <a class="btn" href="{% url 'cats:all' %}">Cancel</a>
                 </form>
