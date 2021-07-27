@@ -13,7 +13,7 @@
         {% endif %}<br>
 
     <a href="{% url 'cats:breed_create' %}">Add a Breed</a><br><br>
-{#    <a href="{% url 'autos:make_list' %}">View makes </a>({{ make_count }}) <br><br>#}
+    <a href="{% url 'cats:breeds_all' %}">View breeds </a> <br><br>
 
     <a href="{% url 'cats:all' %}">Back to Cats</a>
 {% endblock %}
